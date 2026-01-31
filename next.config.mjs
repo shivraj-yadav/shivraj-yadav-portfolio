@@ -1,18 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  output: process.env.STATIC_EXPORT === "true" ? "export" : undefined,
+
   images: {
     unoptimized: true,
   },
-  onDemandEntries: {
-    maxInactiveAge: 1000,
-    maxSize: 50,
-  },
-  output: 'export',
-  trailingSlash: true,
-  distDir: 'out',
-}
 
-export default nextConfig
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+};
+
+export default nextConfig;

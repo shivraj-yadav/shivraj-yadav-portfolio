@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { SiLeetcode, SiCodeforces } from "react-icons/si";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +25,8 @@ const Navbar = () => {
     { icon: FaGithub, href: "https://github.com/shivraj-yadav", label: "GitHub" },
     { icon: FaLinkedin, href: "https://www.linkedin.com/in/shivraj-yadav/", label: "LinkedIn" },
     { icon: FaTwitter, href: "https://x.com/shivraj_yadav1", label: "Twitter" },
+    { icon: SiLeetcode, href: "https://leetcode.com/u/shivraj_yadav/", label: "LeetCode" },
+    { icon: SiCodeforces, href: "https://codeforces.com/profile/shivraj-yadav", label: "Codeforces" },
   ];
 
   useEffect(() => {

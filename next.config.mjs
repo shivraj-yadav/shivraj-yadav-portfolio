@@ -10,6 +10,9 @@ const nextConfig = {
     maxInactiveAge: 1000,
     maxSize: 50,
   },
+  output: 'export',
+  trailingSlash: true,
+  distDir: 'out',
 }
 
 export default nextConfig

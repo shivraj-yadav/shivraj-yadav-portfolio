@@ -4,25 +4,24 @@ import { motion } from "framer-motion"
 import { ArrowRight, Download } from "lucide-react"
 import Image from "next/image"
 
-
 const Hero = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.7, ease: "easeOut" },
     },
   }
 
@@ -44,114 +43,123 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[25vh] flex items-center justify-center section pb-16 overflow-hidden"
+      className="relative flex items-center justify-center px-6 lg:px-16 overflow-hidden pt-20 min-h-[calc(100vh-80px)]"
     >
+      {/* Subtle background glow blobs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl w-full"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center max-w-7xl w-full"
       >
-        {/* Left: Text Content */}
-        <motion.div variants={itemVariants} className="space-y-8">
-          <motion.div variants={itemVariants} className="space-y-4">
-            <motion.p
-              variants={itemVariants}
-              className="text-primary text-lg font-semibold tracking-wider uppercase"
-            >
+        {/* ── Left: Text Content ── */}
+        <motion.div variants={itemVariants} className="flex flex-col gap-6">
+
+          {/* Badge */}
+          <motion.div variants={itemVariants}>
+            <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase text-cyan-400 before:content-[''] before:block before:w-6 before:h-px before:bg-cyan-400">
               Welcome to my portfolio
-            </motion.p>
-
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-balance text-white"
-            >
-              Hello, I am{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400">
-                Shivraj Yadav
-              </span>
-            </motion.h1>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-xl md:text-2xl text-gray-300 font-light tracking-tight"
-            >
-              Full Stack Engineer (MERN) | AI-Driven Web Applications
-            </motion.p>
+            </span>
           </motion.div>
 
+          {/* Heading */}
+          <motion.div variants={itemVariants} className="flex flex-col gap-2">
+            <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white">
+              Hello, I am
+            </h1>
+            <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400">
+              Shivraj Yadav
+            </h1>
+          </motion.div>
+
+          {/* Role */}
           <motion.p
             variants={itemVariants}
-            className="text-base md:text-lg text-gray-400 leading-relaxed max-w-md"
+            className="text-lg md:text-xl text-gray-400 font-medium tracking-tight border-l-2 border-cyan-500/50 pl-4"
           >
-            I develop end-to-end web applications that are scalable, efficient, and production-ready. My expertise lies in the MERN stack, where I focus on building clean, maintainable architectures and seamless user experiences.
+            Full Stack Engineer (MERN)&nbsp;&nbsp;·&nbsp;&nbsp;Backend Systems & API Development
           </motion.p>
 
+          {/* Description */}
+          <motion.p
+            variants={itemVariants}
+            className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg"
+          >
+            I build end-to-end web applications that are scalable, efficient, and production-ready —
+            focusing on clean architectures and seamless user experiences using the MERN stack.
+          </motion.p>
+
+          {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 pt-4"
+            className="flex flex-col sm:flex-row gap-4 pt-2"
           >
-            {/* Get In Touch */}
             <motion.button
               onClick={handleContactScroll}
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(103, 232, 249, 0.4)" }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-premium bg-primary text-primary-foreground flex items-center justify-center gap-2 group"
+              whileHover={{ scale: 1.03, boxShadow: "0 0 28px rgba(34,211,238,0.35)" }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold text-sm tracking-wide transition-colors duration-200 group"
             >
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              Get In Touch
+              <span>Get In Touch</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </motion.button>
 
-            {/* Download Resume */}
             <motion.button
               onClick={handleDownload}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-premium bg-secondary text-foreground border border-primary/30 flex items-center justify-center gap-2 hover:bg-secondary/30 hover:border-primary/50"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 hover:border-cyan-500/40 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm tracking-wide transition-all duration-200"
             >
               <Download className="w-4 h-4" />
-              Download Resume
+              <span>Download Resume</span>
             </motion.button>
           </motion.div>
         </motion.div>
 
-        {/* Right: Profile Image with Glow */}
-        <motion.div variants={itemVariants} className="relative flex items-center justify-center">
+        {/* ── Right: Profile Image ── */}
+        <motion.div
+          variants={itemVariants}
+          className="flex items-center justify-center lg:justify-end"
+        >
           <motion.div
-            animate={{ y: [0, -20, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
-            className="relative w-72 h-72 md:w-96 md:h-96"
+            animate={{ y: [0, -16, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="relative w-72 h-72 md:w-[22rem] md:h-[22rem] lg:w-96 lg:h-96"
           >
-            {/* Outer rotating glow */}
+            {/* Outer rotating gradient ring */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-400 p-[2px]"
+              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: "conic-gradient(from 0deg, #22d3ee, #818cf8, #a78bfa, #22d3ee)",
+                padding: "2px",
+              }}
             >
-              <div className="w-full h-full rounded-full bg-slate-900" />
+              <div className="w-full h-full rounded-full bg-slate-950" />
             </motion.div>
 
+            {/* Static inner ring for depth */}
+            <div className="absolute inset-[3px] rounded-full border border-white/5" />
+
             {/* Profile Image */}
-            <div className="absolute inset-2 rounded-full overflow-hidden">
+            <div className="absolute inset-[6px] rounded-full overflow-hidden ring-1 ring-white/10">
               <Image
                 src="/shivv.jpeg"
-                alt="Shivraj Yadav profile photo"
+                alt="Shivraj Yadav"
                 fill
                 priority
                 className="object-cover"
               />
             </div>
 
-            {/* Inner glow pulse */}
-            <motion.div
-              animate={{ opacity: [0.4, 0.9, 0.4] }}
-              transition={{ duration: 2.5, repeat: Infinity }}
-              className="absolute inset-0 rounded-full glow-effect"
-            />
+            {/* Ambient glow under the circle */}
+            <div className="absolute inset-8 rounded-full bg-cyan-400/10 blur-2xl -z-10" />
           </motion.div>
         </motion.div>
-
       </motion.div>
     </section>
   )

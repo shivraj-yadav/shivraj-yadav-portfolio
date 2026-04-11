@@ -72,7 +72,7 @@ const Experience = () => {
   return (
     <section
   id="experience"
-  className="section py-16 md:py-20 bg-gradient-to-b from-transparent via-accent/5 to-transparent"
+  className="section bg-gradient-to-b from-transparent via-accent/5 to-transparent"
 >
 
       <motion.div

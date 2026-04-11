@@ -5,49 +5,34 @@ import { CheckCircle2 } from "lucide-react"
 
 const Experience = () => {
   const experiences = [
-  {
-    role: "Trainee Engineer",
-    company: "TechnoWings International IT Solutions",
-    location: "Solapur, Maharashtra",
-    duration: "Jul 2023 – Aug 2023",
-    achievements: [
-      "Worked on basic features using React.js and Node.js.",
-      "Created simple REST API endpoints and tested them using Postman.",
-      "Made small improvements to SQL queries under team guidance.",
-      "Built responsive UI pages following given design guidelines."
-    ],
-    techStack: ["React.js", "Node.js", "Express", "SQL", "Postman"]
-  },
-  {
-    role: "Founder & Full Stack Engineer",
-    company: "Tech Projectify",
-    location: "Remote",
-    duration: "2023 – Present",
-    achievements: [
-          "Designed and developed a full-stack platform delivering academic and MVP-level projects for engineering students and early-stage startups.",
-          "Built and deployed scalable web applications using the MERN stack with a focus on performance, accessibility, and clean architecture.",
+    {
+      role: "Trainee Engineer",
+      company: "TechnoWings International IT Solutions",
+      location: "Solapur, Maharashtra",
+      duration: "Jul 2023 – Aug 2023",
+      achievements: [
+        "Worked on basic features using React.js and Node.js.",
+        "Created simple REST API endpoints and tested them using Postman.",
+        "Made small improvements to SQL queries under team guidance.",
+        "Built responsive UI pages following given design guidelines."
+      ],
+      techStack: ["React.js", "Node.js", "Express", "SQL", "Postman"]
+    },
 
-    "Delivered ready-to-customize web, Android, and AI/ML projects with complete documentation, code walkthroughs, and deployment support.",
-
-          "Integrated project request workflows, service listings, and student-focused dashboards to streamline project delivery.",
-
-    ],
-    techStack: ["React.js", "Node.js", "MongoDB", "JWT"]
-  },
-  {
-    role: "AI / ML Intern",
-    company: "Pantech.ai",
-    location: "Remote",
-    duration: "Internship Program",
-    achievements: [
-      "Learned basics of Machine Learning and Deep Learning.",
-      "Worked on beginner-level projects like price prediction and image classification.",
-      "Used Python libraries for data handling and model training.",
-      "Understood how AI models are trained and evaluated."
-    ],
-    techStack: ["Python", "Pandas", "NumPy", "TensorFlow"]
-  }
-];
+    {
+      role: "AI / ML Intern",
+      company: "Pantech.ai",
+      location: "Remote",
+      duration: "Internship Program",
+      achievements: [
+        "Learned basics of Machine Learning and Deep Learning.",
+        "Worked on beginner-level projects like price prediction and image classification.",
+        "Used Python libraries for data handling and model training.",
+        "Understood how AI models are trained and evaluated."
+      ],
+      techStack: ["Python", "Pandas", "NumPy", "TensorFlow"]
+    }
+  ];
 
 
   const containerVariants = {
@@ -71,9 +56,9 @@ const Experience = () => {
 
   return (
     <section
-  id="experience"
-  className="section bg-gradient-to-b from-transparent via-accent/5 to-transparent"
->
+      id="experience"
+      className="section bg-gradient-to-b from-transparent via-accent/5 to-transparent"
+    >
 
       <motion.div
         variants={containerVariants}

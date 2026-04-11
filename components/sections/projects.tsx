@@ -1,11 +1,29 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Github } from "lucide-react"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Github, ChevronDown, ChevronUp } from "lucide-react"
+import Image from "next/image"
 
 const Projects = () => {
+  const [showAll, setShowAll] = useState(false)
+
   const projects = [
     {
+      title: "Civic Issue Reporting System",
+      description:
+        "A smart web platform that allows citizens to report civic issues like potholes, garbage, and water leaks with real-time tracking and automated assignment to the nearest municipal worker using GPS-based logic.",
+      category: "FULL STACK / SMART CITY",
+      tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Leaflet", "Cloudinary"],
+      github: "https://github.com/himanshu-firke/smart-civic-reporting",
+      demo: "#",
+      status: "Completed",
+      date: "2026",
+      featured: true,
+      complexity: "Advanced",
+      image: "/civic-issue.png",
+    }
+    , {
       title: "Scalable AI Model Comparison Platform",
       description:
         "A full-stack web application to compare responses from multiple AI models using a unified API, focusing on performance, scalability, and clean UI.",
@@ -17,6 +35,7 @@ const Projects = () => {
       date: "2025",
       featured: true,
       complexity: "Intermediate",
+      image: "/model-comparison.png",
     },
     {
       title: "LiveLogic",
@@ -30,6 +49,7 @@ const Projects = () => {
       date: "2025",
       featured: true,
       complexity: "Intermediate",
+      image: "/live-logic.png",
     },
     {
       title: "ChugLi – Real-Time Nearby Chat Web App",
@@ -52,6 +72,7 @@ const Projects = () => {
       date: "2025",
       featured: true,
       complexity: "Intermediate",
+      image: "/chugli.png",
     },
     {
       title: "Audio Text Evaluator",
@@ -65,6 +86,7 @@ const Projects = () => {
       date: "2025",
       featured: true,
       complexity: "Intermediate",
+      image: "/Audio-text.png",
     },
     {
       title: "CyberShield App",
@@ -78,6 +100,7 @@ const Projects = () => {
       date: "2024",
       featured: false,
       complexity: "Intermediate",
+      image: "/cyberShield-app.png",
     },
     {
       title: "AI Finger Counter",
@@ -91,6 +114,7 @@ const Projects = () => {
       date: "2024",
       featured: false,
       complexity: "Beginner",
+      image: "/ai-finger.png",
     },
     {
       title: "TechProjectify",
@@ -104,6 +128,7 @@ const Projects = () => {
       date: "2024",
       featured: false,
       complexity: "Beginner",
+      image: "/TechProjectify.png",
     },
     {
       title: "SVIT College Website",
@@ -117,10 +142,9 @@ const Projects = () => {
       date: "2023",
       featured: false,
       complexity: "Beginner",
+      image: "/svit.png",
     },
-  ];
-
-
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -141,7 +165,7 @@ const Projects = () => {
     },
   }
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
       case "In Development":
         return "bg-yellow-500/20 text-yellow-300 border-yellow-500/30"
@@ -151,6 +175,8 @@ const Projects = () => {
         return "bg-purple-500/20 text-purple-300 border-purple-500/30"
     }
   }
+
+  const visibleProjects = showAll ? projects : projects.slice(0, 4)
 
   return (
     <section id="projects" className="section bg-gradient-to-b from-transparent via-primary/5 to-transparent">
@@ -164,61 +190,110 @@ const Projects = () => {
         <motion.div variants={itemVariants} className="space-y-4">
           <p className="text-primary text-sm font-semibold uppercase tracking-wider">Portfolio</p>
           <h2 className="text-4xl md:text-5xl font-bold text-balance text-white">
-            All Projects <span className="text-primary"> projects</span>
+            All Projects
           </h2>
         </motion.div>
 
-        <motion.div variants={containerVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(103, 232, 249, 0.1)" }}
-              className="backdrop-blur-md bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 flex flex-col justify-between transition-all hover:border-primary/30"
-            >
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-2xl font-bold text-white flex-1">{project.title}</h3>
-                  <span className={`badge-status ${getStatusColor(project.status)} whitespace-nowrap`}>
-                    {project.status === "In Development" && "⚡"}
-                    {project.status === "Completed" && "✓"}
-                    {project.status}
-                  </span>
-                </div>
-                <p className="text-gray-300 leading-relaxed text-sm">{project.description}</p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tag, tagIdx) => (
-                    <motion.span
-                      key={tagIdx}
-                      whileHover={{ scale: 1.05 }}
-                      className="text-xs px-3 py-1 rounded-full bg-primary/15 text-primary border border-primary/25 hover:bg-primary/25 transition-all"
-                    >
-                      {tag}
-                    </motion.span>
-                  ))}
+        <motion.div layout className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <AnimatePresence>
+            {visibleProjects.map((project) => (
+              <motion.div
+                layout
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+                whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(103, 232, 249, 0.1)" }}
+                className="backdrop-blur-md bg-slate-900/50 border border-slate-700/50 rounded-2xl overflow-hidden flex flex-col transition-all hover:border-primary/30"
+              >
+                {/* Project Image */}
+                <div className="relative w-full h-52 sm:h-56 flex-shrink-0 group overflow-hidden bg-slate-800">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
                 </div>
 
-                <div className="flex gap-4 pt-2">
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-primary hover:text-cyan-300 transition-colors text-sm font-medium"
-                  >
-                    Code
-                    <Github className="w-4 h-4" />
-                  </motion.a>
+                {/* Card Body */}
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="space-y-3 mb-4">
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-xl font-bold text-white flex-1">{project.title}</h3>
+                      <span className={`badge-status ${getStatusColor(project.status)} whitespace-nowrap`}>
+                        {project.status === "In Development" && "⚡"}
+                        {project.status === "Completed" && "✓"}
+                        {" "}{project.status}
+                      </span>
+                    </div>
+                    <p className="text-gray-300 leading-relaxed text-sm">{project.description}</p>
+                  </div>
 
+                  <div className="space-y-4 mt-auto">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tag, tagIdx) => (
+                        <motion.span
+                          key={tagIdx}
+                          whileHover={{ scale: 1.05 }}
+                          className="text-xs px-3 py-1 rounded-full bg-primary/15 text-primary border border-primary/25 hover:bg-primary/25 transition-all"
+                        >
+                          {tag}
+                        </motion.span>
+                      ))}
+                    </div>
+
+                    <div className="flex gap-4 pt-2">
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-primary hover:text-cyan-300 transition-colors text-sm font-medium"
+                      >
+                        Code
+                        <Github className="w-4 h-4" />
+                      </motion.a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </motion.div>
+
+        {/* View More / View Less Button */}
+        {projects.length > 4 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="flex justify-center pt-4"
+          >
+            <motion.button
+              onClick={() => setShowAll(!showAll)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-premium bg-transparent text-primary border border-primary/30 hover:bg-primary/10 flex items-center gap-2"
+            >
+              {showAll ? (
+                <>
+                  View Less Projects
+                  <ChevronUp className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  View More Projects
+                  <ChevronDown className="w-4 h-4" />
+                </>
+              )}
+            </motion.button>
+          </motion.div>
+        )}
       </motion.div>
     </section>
   )

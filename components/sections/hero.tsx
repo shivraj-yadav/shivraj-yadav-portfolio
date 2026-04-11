@@ -42,10 +42,10 @@ const Hero = () => {
   }
 
   return (
-<section
-  id="home"
-  className="relative min-h-[25vh] flex items-center justify-center section pb-16 overflow-hidden"
->
+    <section
+      id="home"
+      className="relative min-h-[25vh] flex items-center justify-center section pb-16 overflow-hidden"
+    >
 
       <motion.div
         variants={containerVariants}
@@ -85,7 +85,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-base md:text-lg text-gray-400 leading-relaxed max-w-md"
           >
-            I develop scalable and high-performance web applications with a focus on clean architecture, usability, and long-term maintainability. I enjoy solving real-world problems by building reliable systems and enhancing them with intelligent features.
+            I develop end-to-end web applications that are scalable, efficient, and production-ready. My expertise lies in the MERN stack, where I focus on building clean, maintainable architectures and seamless user experiences.
           </motion.p>
 
           <motion.div
@@ -117,40 +117,40 @@ const Hero = () => {
         </motion.div>
 
         {/* Right: Profile Image with Glow */}
-<motion.div variants={itemVariants} className="relative flex items-center justify-center">
-  <motion.div
-    animate={{ y: [0, -20, 0] }}
-    transition={{ duration: 4, repeat: Infinity }}
-    className="relative w-72 h-72 md:w-96 md:h-96"
-  >
-    {/* Outer rotating glow */}
-    <motion.div
-      animate={{ rotate: 360 }}
-      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-400 p-[2px]"
-    >
-      <div className="w-full h-full rounded-full bg-slate-900" />
-    </motion.div>
+        <motion.div variants={itemVariants} className="relative flex items-center justify-center">
+          <motion.div
+            animate={{ y: [0, -20, 0] }}
+            transition={{ duration: 4, repeat: Infinity }}
+            className="relative w-72 h-72 md:w-96 md:h-96"
+          >
+            {/* Outer rotating glow */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-400 p-[2px]"
+            >
+              <div className="w-full h-full rounded-full bg-slate-900" />
+            </motion.div>
 
-    {/* Profile Image */}
-    <div className="absolute inset-2 rounded-full overflow-hidden">
-      <Image
-        src="/shivv.jpeg"
-        alt="Shivraj Yadav profile photo"
-        fill
-        priority
-        className="object-cover"
-      />
-    </div>
+            {/* Profile Image */}
+            <div className="absolute inset-2 rounded-full overflow-hidden">
+              <Image
+                src="/shivv.jpeg"
+                alt="Shivraj Yadav profile photo"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
 
-    {/* Inner glow pulse */}
-    <motion.div
-      animate={{ opacity: [0.4, 0.9, 0.4] }}
-      transition={{ duration: 2.5, repeat: Infinity }}
-      className="absolute inset-0 rounded-full glow-effect"
-    />
-  </motion.div>
-</motion.div>
+            {/* Inner glow pulse */}
+            <motion.div
+              animate={{ opacity: [0.4, 0.9, 0.4] }}
+              transition={{ duration: 2.5, repeat: Infinity }}
+              className="absolute inset-0 rounded-full glow-effect"
+            />
+          </motion.div>
+        </motion.div>
 
       </motion.div>
     </section>

@@ -148,7 +148,7 @@ const Hero = () => {
             {/* Profile Image */}
             <div className="absolute inset-[6px] rounded-full overflow-hidden ring-1 ring-white/10">
               <Image
-                src="/shivv.jpeg"
+                src="/shivraj.jpeg"
                 alt="Shivraj Yadav"
                 fill
                 priority

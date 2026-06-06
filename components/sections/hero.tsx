@@ -27,7 +27,7 @@ const Hero = () => {
 
   const handleDownload = () => {
     window.open(
-      "https://drive.google.com/file/d/1vOPHnPKRy2ZYEvO7KgIpqBHLnF3feTb2/view?usp=sharing",
+      "https://drive.google.com/file/d/12TTDNt1TzG-plw3GqRkl-uW28PleZWT2/view?usp=sharing",
       "_blank",
       "noopener,noreferrer"
     )
@@ -145,16 +145,16 @@ const Hero = () => {
             {/* Static inner ring for depth */}
             <div className="absolute inset-[3px] rounded-full border border-white/5" />
 
-           {/* Profile Image */}
-          <div className="absolute inset-[6px] rounded-full overflow-hidden ring-1 ring-white/10">
-            <Image
-              src="/shivraj.jpeg"
-              alt="Shivraj Yadav"
-              fill
-              priority
-              className="object-cover object-top"  // ← changed from object-cover to object-cover object-top
-            />
-          </div>
+            {/* Profile Image */}
+            <div className="absolute inset-[6px] rounded-full overflow-hidden ring-1 ring-white/10">
+              <Image
+                src="/shivraj.jpeg"
+                alt="Shivraj Yadav"
+                fill
+                priority
+                className="object-cover object-top"  // ← changed from object-cover to object-cover object-top
+              />
+            </div>
 
             {/* Ambient glow under the circle */}
             <div className="absolute inset-8 rounded-full bg-cyan-400/10 blur-2xl -z-10" />

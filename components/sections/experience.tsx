@@ -6,31 +6,16 @@ import { CheckCircle2 } from "lucide-react"
 const Experience = () => {
   const experiences = [
     {
-      role: "Trainee Engineer",
+      role: "Software Engineer Intern",
       company: "TechnoWings International IT Solutions",
       location: "Solapur, Maharashtra",
       duration: "Jul 2023 – Aug 2023",
       achievements: [
-        "Worked on basic features using React.js and Node.js.",
-        "Created simple REST API endpoints and tested them using Postman.",
-        "Made small improvements to SQL queries under team guidance.",
-        "Built responsive UI pages following given design guidelines."
+        "Built REST APIs in Node.js and Express.js for auth workflows — login, registration, and forgot-password — reducing support queries by 30%.",
+        "Developed 3+ React.js UI components with form validation and resolved 15+ bugs during Agile sprint reviews via Git-based peer code reviews.",
+        "Integrated Cloudinary API for media uploads, handling 500+ assets with 40% faster load time."
       ],
-      techStack: ["React.js", "Node.js", "Express", "SQL", "Postman"]
-    },
-
-    {
-      role: "AI / ML Intern",
-      company: "Pantech.ai",
-      location: "Remote",
-      duration: "Internship Program",
-      achievements: [
-        "Learned basics of Machine Learning and Deep Learning.",
-        "Worked on beginner-level projects like price prediction and image classification.",
-        "Used Python libraries for data handling and model training.",
-        "Understood how AI models are trained and evaluated."
-      ],
-      techStack: ["Python", "Pandas", "NumPy", "TensorFlow"]
+      techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Cloudinary", "Git", "Postman"]
     }
   ];
 

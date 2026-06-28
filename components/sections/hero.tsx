@@ -27,7 +27,7 @@ const Hero = () => {
 
   const handleDownload = () => {
     window.open(
-      "https://drive.google.com/file/d/12TTDNt1TzG-plw3GqRkl-uW28PleZWT2/view?usp=sharing",
+      "https://drive.google.com/file/d/1wGTG4G7PWJh0u_SzbyQKYC8P4LZoVMH1/view?usp=sharing",
       "_blank",
       "noopener,noreferrer"
     )

@@ -6,9 +6,15 @@ import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
+
 export const metadata: Metadata = {
   title: "Full Stack Developer | Portfolio",
   description: "Premium developer portfolio showcasing projects, experience, and expertise",
+
+  verification: {
+    google: "VNcMKsfyccaRGP9UhjY5jwQipPWtHElymiOx4WPCnW8",
+  },
+
   icons: {
     icon: [
       {
@@ -23,7 +29,7 @@ export const metadata: Metadata = {
       },
       {
         url: "/icon.jpg",
-        type: "image/jpeg", // ✅ correct MIME type
+        type: "image/jpeg",
       },
     ],
     apple: "/apple-icon.png",
@@ -37,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`font-sans antialiased bg-background text-foreground overflow-x-hidden`}>
+      <body className="font-sans antialiased bg-background text-foreground overflow-x-hidden">
         {children}
         <Analytics />
       </body>

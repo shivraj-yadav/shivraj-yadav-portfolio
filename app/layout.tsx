@@ -8,9 +8,9 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Full Stack Developer | Portfolio",
-  description: "Premium developer portfolio showcasing projects, experience, and expertise",
+  title: "Shivraj Yadav | Full Stack Developer | AI & MERN Stack Engineer",
 
+  description:  "Shivraj Yadav is a Full Stack Developer and Computer Engineering student specializing in React.js, Node.js, Express.js, MongoDB, AI, Machine Learning, and Competitive Programming.",
   verification: {
     google: "VNcMKsfyccaRGP9UhjY5jwQipPWtHElymiOx4WPCnW8",
   },

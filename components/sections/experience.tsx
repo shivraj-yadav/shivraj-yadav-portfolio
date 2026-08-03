@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Calendar, MapPin } from "lucide-react"
+import Image from "next/image"
 
 interface Experience {
   image?: string
@@ -81,7 +82,7 @@ const Experience = () => {
             Professional Journey
           </p>
           <h2 className="text-4xl md:text-5xl font-bold">
-            Experience &{" "}
+            Software Experience &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
               Achievements
             </span>
@@ -102,11 +103,12 @@ const Experience = () => {
 
                 {/* Icon / Logo */}
                 {exp.image ? (
-                  <div className="w-12 h-12 rounded-xl overflow-hidden border border-border/40 shrink-0 bg-card/60">
-                    <img
+                  <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-border/40 shrink-0 bg-card/60">
+                    <Image
                       src={exp.image}
-                      alt={exp.company}
-                      className="w-full h-full object-cover"
+                      alt={`${exp.company} logo - Shivraj Yadav Experience`}
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 ) : (

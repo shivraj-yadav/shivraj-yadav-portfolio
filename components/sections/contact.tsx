@@ -4,7 +4,9 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import emailjs from "@emailjs/browser"
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Send } from "lucide-react"
+import { Mail, Phone, MapPin, Send, FileText } from "lucide-react"
+import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa"
+import { SiLeetcode, SiCodeforces } from "react-icons/si"
 
 const Contact = () => {
   // ---------------- STATE ----------------
@@ -24,25 +26,61 @@ const Contact = () => {
       label: "Email",
       value: "shivrajyadav320@gmail.com",
       href: "mailto:shivrajyadav320@gmail.com",
+      anchorText: "Email Shivraj Yadav",
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+91 8999127575",
       href: "tel:+918999127575",
+      anchorText: "Call Shivraj Yadav",
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Jalgaon, Maharashtra, India",
       href: "#",
+      anchorText: "Shivraj Yadav Location: Jalgaon, India",
     },
   ]
 
   const socials = [
-    { icon: Linkedin, href: "https://www.linkedin.com/in/shivraj-yadav/", label: "LinkedIn" },
-    { icon: Github, href: "https://github.com/shivraj-yadav", label: "GitHub" },
-    { icon: Twitter, href: "https://x.com/shivraj_yadav1", label: "Twitter" },
+    {
+      icon: FaLinkedin,
+      href: "https://www.linkedin.com/in/shivraj-yadav/",
+      label: "LinkedIn",
+      anchorText: "Shivraj Yadav on LinkedIn",
+    },
+    {
+      icon: FaGithub,
+      href: "https://github.com/shivraj-yadav",
+      label: "GitHub",
+      anchorText: "Shivraj Yadav on GitHub",
+    },
+    {
+      icon: SiLeetcode,
+      href: "https://leetcode.com/u/shivraj_yadav/",
+      label: "LeetCode",
+      anchorText: "Shivraj Yadav on LeetCode",
+    },
+    {
+      icon: SiCodeforces,
+      href: "https://codeforces.com/profile/shivraj-yadav",
+      label: "Codeforces",
+      anchorText: "Shivraj Yadav on Codeforces",
+    },
+    {
+      icon: FaTwitter,
+      href: "https://x.com/shivraj_yadav1",
+      label: "Twitter",
+      anchorText: "Shivraj Yadav on Twitter/X",
+    },
+    {
+      icon: FileText,
+      href: "https://drive.google.com/file/d/1E0DYHSYOS4HUb6S1Pr3vzY2uRKbMbo9w/view?usp=sharing",
+      label: "Resume",
+      anchorText: "Download Shivraj Yadav's Resume",
+    },
   ]
 
   // ---------------- ANIMATIONS ----------------
@@ -109,41 +147,59 @@ const Contact = () => {
       >
         {/* Heading */}
         <motion.div variants={itemVariants} className="text-center space-y-4">
-          <p className="text-primary text-sm font-semibold uppercase tracking-wider">Get In Touch</p>
+          <p className="text-primary text-sm font-semibold uppercase tracking-wider">Get In Touch with Shivraj Yadav</p>
           <h2 className="text-4xl md:text-5xl font-bold">Let's Work Together</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ready to bring your ideas to life? Let's discuss your next project.
+            Have a project in mind or interested in hiring a Full Stack Engineer? Reach out to Shivraj Yadav.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* LEFT */}
           <motion.div variants={containerVariants} className="space-y-8">
-            {contactInfo.map((info, index) => (
-              <motion.div key={index} variants={itemVariants} whileHover={{ x: 4 }}>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                    <info.icon className="w-5 h-5 text-primary" />
+            <address className="not-italic space-y-6">
+              {contactInfo.map((info, index) => (
+                <motion.div key={index} variants={itemVariants} whileHover={{ x: 4 }}>
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                      <info.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <p className="text-xs font-bold uppercase text-muted-foreground">{info.label}</p>
                   </div>
-                  <p className="text-xs font-bold uppercase text-muted-foreground">{info.label}</p>
-                </div>
-                <a href={info.href} className="ml-11 text-lg font-semibold hover:text-primary">
-                  {info.value}
-                </a>
-              </motion.div>
-            ))}
+                  <a
+                    href={info.href}
+                    className="ml-11 text-lg font-semibold hover:text-primary transition-colors"
+                    title={info.anchorText}
+                  >
+                    {info.value}
+                  </a>
+                </motion.div>
+              ))}
+            </address>
 
             <motion.div variants={itemVariants} className="pt-8 border-t border-border/50">
-              <h3 className="text-lg font-bold mb-6">Connect with me</h3>
-              <div className="flex gap-4">
+              <h3 className="text-xl font-bold mb-2 text-foreground">Find Shivraj Yadav Online</h3>
+              <p className="text-muted-foreground text-sm mb-6">
+                Connect across verified public profiles and technical coding platforms:
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {socials.map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.href}
-                    whileHover={{ y: -3, scale: 1.15 }}
-                    className="w-12 h-12 rounded-lg border border-primary/40 flex items-center justify-center hover:bg-primary/20"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.02, x: 2 }}
+                    className="flex items-center gap-3 p-3 rounded-xl border border-border/60 bg-card/40 hover:border-primary/50 hover:bg-card/80 transition-all duration-200"
+                    title={social.anchorText}
                   >
-                    <social.icon className="w-6 h-6 text-primary" />
+                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <social.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {social.anchorText}
+                    </span>
                   </motion.a>
                 ))}
               </div>

@@ -212,17 +212,17 @@ const Projects = () => {
           <div className="flex items-center gap-3">
             <span className="h-px w-8 bg-cyan-400/60" />
             <p className="text-cyan-400 text-xs font-semibold uppercase tracking-[0.2em]">
-              Portfolio
+              Projects by Shivraj Yadav
             </p>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            All{" "}
+            Full Stack & AI{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">
               Projects
             </span>
           </h2>
           <p className="text-slate-400 text-base max-w-xl">
-            A collection of things I've built — from real-time platforms to AI-powered tools.
+            A showcase of software engineering projects, full stack web apps, and AI applications developed by Shivraj Yadav.
           </p>
         </motion.div>
 
@@ -244,7 +244,7 @@ const Projects = () => {
                 <div className="relative w-full overflow-hidden bg-slate-800/80" style={{ aspectRatio: "16/9" }}>
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} by Shivraj Yadav`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
@@ -316,6 +316,8 @@ const Projects = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-1.5 text-slate-400 hover:text-emerald-400 transition-colors text-xs font-medium"
+                          aria-label={`Live Demo for ${project.title} by Shivraj Yadav`}
+                          title={`View Live Demo for ${project.title}`}
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
                           Live
@@ -328,6 +330,8 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1.5 text-slate-400 hover:text-cyan-400 transition-colors text-xs font-medium"
+                        aria-label={`Source Code for ${project.title} on Shivraj Yadav GitHub`}
+                        title={`View Source Code for ${project.title} on GitHub`}
                       >
                         <Github className="w-3.5 h-3.5" />
                         Code

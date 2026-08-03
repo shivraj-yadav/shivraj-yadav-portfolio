@@ -21,11 +21,11 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { icon: FaGithub, href: "https://github.com/shivraj-yadav", label: "GitHub" },
-    { icon: FaLinkedin, href: "https://www.linkedin.com/in/shivraj-yadav/", label: "LinkedIn" },
-    { icon: FaTwitter, href: "https://x.com/shivraj_yadav1", label: "Twitter" },
-    { icon: SiLeetcode, href: "https://leetcode.com/u/shivraj_yadav/", label: "LeetCode" },
-    { icon: SiCodeforces, href: "https://codeforces.com/profile/shivraj-yadav", label: "Codeforces" },
+    { icon: FaGithub, href: "https://github.com/shivraj-yadav", label: "Shivraj Yadav on GitHub", title: "Shivraj Yadav GitHub Profile" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/shivraj-yadav/", label: "Shivraj Yadav on LinkedIn", title: "Shivraj Yadav LinkedIn Profile" },
+    { icon: FaTwitter, href: "https://x.com/shivraj_yadav1", label: "Shivraj Yadav on Twitter", title: "Shivraj Yadav Twitter Profile" },
+    { icon: SiLeetcode, href: "https://leetcode.com/u/shivraj_yadav/", label: "Shivraj Yadav on LeetCode", title: "Shivraj Yadav LeetCode Profile" },
+    { icon: SiCodeforces, href: "https://codeforces.com/profile/shivraj-yadav", label: "Shivraj Yadav on Codeforces", title: "Shivraj Yadav Codeforces Profile" },
   ];
 
   useEffect(() => {
@@ -160,6 +160,7 @@ const Navbar = () => {
                     e.currentTarget.style.background = 'var(--bg-secondary)';
                   }}
                   aria-label={social.label}
+                  title={social.title}
                 >
                   <social.icon size={16} />
                 </motion.a>

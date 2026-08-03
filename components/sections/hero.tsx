@@ -68,10 +68,10 @@ const Hero = () => {
           {/* Heading */}
           <motion.div variants={itemVariants} className="flex flex-col gap-2">
             <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white">
-              Hello, I am
-            </h1>
-            <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400">
-              Shivraj Yadav
+              Hi, I'm{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400">
+                Shivraj Yadav
+              </span>
             </h1>
           </motion.div>
 
@@ -80,7 +80,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-lg md:text-xl text-gray-400 font-medium tracking-tight border-l-2 border-cyan-500/50 pl-4"
           >
-            Full Stack Engineer (MERN)&nbsp;&nbsp;·&nbsp;&nbsp;Backend Systems & API Development
+            Computer Engineering Student & Full Stack Developer (MERN)&nbsp;&nbsp;·&nbsp;&nbsp;AI & Software Engineer
           </motion.p>
 
           {/* Description */}
@@ -89,7 +89,7 @@ const Hero = () => {
             className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg"
           >
             I build end-to-end web applications that are scalable, efficient, and production-ready —
-            focusing on clean architectures and seamless user experiences using the MERN stack.
+            focusing on clean architectures, AI integrations, and seamless user experiences using Next.js, React.js, and Node.js.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -102,6 +102,7 @@ const Hero = () => {
               whileHover={{ scale: 1.03, boxShadow: "0 0 28px rgba(34,211,238,0.35)" }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold text-sm tracking-wide transition-colors duration-200 group"
+              aria-label="Contact Shivraj Yadav"
             >
               <span>Get In Touch</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -112,6 +113,7 @@ const Hero = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 hover:border-cyan-500/40 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm tracking-wide transition-all duration-200"
+              aria-label="Download Shivraj Yadav Resume"
             >
               <Download className="w-4 h-4" />
               <span>Download Resume</span>
@@ -149,10 +151,10 @@ const Hero = () => {
             <div className="absolute inset-[6px] rounded-full overflow-hidden ring-1 ring-white/10">
               <Image
                 src="/shivraj.jpeg"
-                alt="Shivraj Yadav"
+                alt="Shivraj Yadav - Computer Engineering Student & Full Stack Developer"
                 fill
                 priority
-                className="object-cover object-top"  // ← changed from object-cover to object-cover object-top
+                className="object-cover object-top"
               />
             </div>
 

@@ -54,8 +54,14 @@ const Education = () => {
         className="max-w-4xl mx-auto space-y-12"
       >
         <motion.div variants={itemVariants} className="space-y-4">
+          <p className="text-primary text-sm font-semibold uppercase tracking-wider">
+            Academic Background
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold text-balance">
-            Education 
+            Education &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              Qualifications
+            </span>
           </h2>
         </motion.div>
 
